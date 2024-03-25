@@ -24,7 +24,6 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
 
-            - run: yarn clean
             - run: yarn install --frozen-lockfile
             - run: yarn lint
             - run: yarn pretty:check
