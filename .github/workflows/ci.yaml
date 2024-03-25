@@ -1,0 +1,32 @@
+name: Node CI
+
+on:
+    workflow_dispatch:
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    node-ci:
+        name: Node CI
+
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [20.x]
+
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+
+            - run: yarn clean
+            - run: yarn install --frozen-lockfile
+            - run: yarn lint
+            - run: yarn pretty:check
+            - run: yarn build
+            - run: yarn test
