@@ -1,6 +1,6 @@
 {
 	"name": "aws-mock-data",
-	"version": "0.0.0-development",
+	"version": "1.0.0",
 	"description": "Mock data for AWS services",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
