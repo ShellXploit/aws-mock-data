@@ -4,9 +4,10 @@
 
 #### `AWSome mock data for JavaScript/TypeScript based AWS services.`
 
+[![NPM Version](https://img.shields.io/npm/v/aws-mock-data?logo=npm)](https://www.npmjs.com/package/aws-mock-data)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ShellXploit/aws-mock-data/blob/main/LICENSE)
 [![Release](https://github.com/ShellXploit/aws-mock-data/actions/workflows/publish.yaml/badge.svg)](https://github.com/ShellXploit/aws-mock-data/actions/workflows/publish.yaml)
-![NPM Version](https://img.shields.io/npm/v/aws-mock-data?logo=npm)
+[![codecov](https://codecov.io/gh/ShellXploit/aws-mock-data/graph/badge.svg?token=JDR3J56KVE)](https://codecov.io/gh/ShellXploit/aws-mock-data)
 
 </div>
 
