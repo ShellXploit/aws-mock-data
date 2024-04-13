@@ -2,9 +2,16 @@ name: Node CI
 
 on:
     workflow_dispatch:
+    push:
+        branches:
+            - main
     pull_request:
         branches:
             - main
+
+concurrency:
+    group: ci-${{ github.head_ref || github.ref_name }}
+    cancel-in-progress: true
 
 jobs:
     node-ci:
@@ -28,4 +35,10 @@ jobs:
             - run: yarn lint
             - run: yarn pretty:check
             - run: yarn build
-            - run: yarn test
+            - run: yarn test --coverage
+            - name: Upload coverage reports to Codecov
+              uses: codecov/codecov-action@v4
+              env:
+                  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+              with:
+                  fail_ci_if_error: true
