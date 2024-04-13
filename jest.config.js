@@ -2,7 +2,7 @@
 const config = {
 	clearMocks: true,
 	coverageDirectory: "coverage",
-	coverageReporters: ["text", "html"],
+	coverageReporters: ["html", "cobertura"],
 	moduleFileExtensions: ["js", "ts"],
 	rootDir: ".",
 	roots: ["<rootDir>/tests"],
