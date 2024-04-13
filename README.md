@@ -7,6 +7,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ShellXploit/aws-mock-data/blob/main/LICENSE)
 [![Release](https://github.com/ShellXploit/aws-mock-data/actions/workflows/publish.yaml/badge.svg)](https://github.com/ShellXploit/aws-mock-data/actions/workflows/publish.yaml)
 ![NPM Version](https://img.shields.io/npm/v/aws-mock-data?logo=npm)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FShellXploit%2Faws-mock-data.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FShellXploit%2Faws-mock-data?ref=badge_shield)
 
 </div>
 
@@ -60,3 +61,7 @@ const jwks = awsServices.userPool.getUserPoolJwks({
 	asymmetricKeys: keyPair
 });
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FShellXploit%2Faws-mock-data.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FShellXploit%2Faws-mock-data?ref=badge_large)
