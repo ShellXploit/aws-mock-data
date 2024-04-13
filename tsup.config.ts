@@ -7,5 +7,6 @@ export default defineConfig({
 	shims: true,
 	skipNodeModulesBundle: true,
 	clean: true,
-	sourcemap: true
+	sourcemap: true,
+	tsconfig: "tsconfig.build.json"
 });

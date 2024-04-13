@@ -6,20 +6,25 @@ export const DEFAULT_COGNITO_CONFIG = {
 };
 
 export const ID_TOKEN_SORTED_KEYS = [
+	"at_hash",
 	"sub",
 	"cognito:groups",
 	"email_verified",
 	"cognito:preferred_role",
 	"iss",
 	"cognito:username",
+	"given_name",
+	"middle_name",
 	"origin_jti",
 	"cognito:roles",
 	"aud",
+	"identities",
 	"event_id",
 	"token_use",
 	"auth_time",
 	"exp",
 	"iat",
+	"family_name",
 	"jti",
 	"email"
 ];

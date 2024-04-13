@@ -1,19 +1,52 @@
 import { AsymmetricKeys } from "../../utils/getAsymmetricKeys";
 
-interface GetCognitoTokensProps {
-	asymmetricKeys: AsymmetricKeys;
-	user: { emailId: string; uuid?: string; emailVerified?: boolean };
-	cognito?: {
-		groups?: string[];
-		roles?: string[];
-		preferredRole?: string;
-		scope?: string;
-		clientId?: string;
-	};
-	userPool?: {
-		id?: string;
-		region?: string;
-	};
+interface CognitoIdentity {
+	userId: string;
+	providerName: string;
+	providerType: string;
+	issuer: string;
+	primary: string;
+	dateCreated: string;
+}
+interface User {
+	emailId: string;
+	givenName?: string;
+	middleName?: string;
+	familyName?: string;
+	uuid?: string;
+	emailVerified?: boolean;
+	identities?: CognitoIdentity[];
 }
 
-export { GetCognitoTokensProps };
+interface Cognito {
+	groups?: string[];
+	roles?: string[];
+	preferredRole?: string;
+	scope?: string;
+	clientId?: string;
+}
+
+interface UserPool {
+	id?: string;
+	region?: string;
+}
+
+interface GetCognitoTokensProps {
+	asymmetricKeys: AsymmetricKeys;
+	user: User;
+	cognito?: Cognito;
+	userPool?: UserPool;
+}
+
+interface CognitoTokens {
+	id_token: string;
+	access_token: string;
+}
+
+export { User, Cognito, UserPool, CognitoIdentity };
+
+/**
+ * External exports
+ * Update `src/types/index.ts`
+ */
+export { CognitoTokens, GetCognitoTokensProps };

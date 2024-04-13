@@ -1,1 +1,4 @@
-export type { GetCognitoTokensProps } from "./awsServices/cognito/cognito";
+export type {
+	CognitoTokens,
+	GetCognitoTokensProps
+} from "./awsServices/cognito/cognito";
