@@ -14,7 +14,8 @@ describe("sortObjectKeys", () => {
 
 		const sortedObj = sortObjectKeys<TestObject>(obj, keyOrder);
 
-		expect(sortedObj).toMatchObject(obj);
+		expect(Object.keys(sortedObj)).toEqual(Object.keys(obj));
+		expect(sortedObj).toEqual(obj);
 	});
 
 	it("should return the object with the keys sorted based on the order", () => {
@@ -27,11 +28,13 @@ describe("sortObjectKeys", () => {
 
 		const sortedObj = sortObjectKeys<TestObject>(obj, keyOrder);
 
-		expect(sortedObj).toMatchObject({
+		const expectedObj = {
 			key3: "value3",
 			key1: "value1",
 			key2: "value2"
-		});
+		};
+		expect(Object.keys(sortedObj)).toEqual(Object.keys(expectedObj));
+		expect(sortedObj).toEqual(expectedObj);
 	});
 
 	it("should return the object with the keys sorted based on the order and maintain the original order for keys not in the order", () => {
@@ -46,12 +49,14 @@ describe("sortObjectKeys", () => {
 
 		const sortedObj = sortObjectKeys<TestObject>(obj, keyOrder);
 
-		expect(sortedObj).toMatchObject({
+		const expectedObj = {
 			key3: "value3",
 			key1: "value1",
 			key2: "value2",
 			key5: "value5",
 			key4: "value4"
-		});
+		};
+		expect(Object.keys(sortedObj)).toEqual(Object.keys(expectedObj));
+		expect(sortedObj).toEqual(expectedObj);
 	});
 });
