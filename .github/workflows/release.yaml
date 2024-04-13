@@ -2,6 +2,12 @@ name: Release
 
 on:
     workflow_dispatch:
+    workflow_run:
+        workflows: ["Node CI"]
+        branches:
+            - main
+        types:
+            - completed
 
 concurrency:
     group: release-${{ github.repository }}
@@ -9,6 +15,8 @@ concurrency:
 jobs:
     release:
         name: Release
+
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
         permissions:
             contents: write # to be able to publish a GitHub release
