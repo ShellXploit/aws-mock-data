@@ -1,9 +1,7 @@
-# Dependabot version updates
-
 version: 2
 
 updates:
-    - package-ecosystem: "yarn"
+    - package-ecosystem: "npm"
       directory: "/"
       schedule:
           interval: "weekly"
