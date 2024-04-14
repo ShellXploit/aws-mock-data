@@ -37,7 +37,7 @@
 	},
 	"dependencies": {
 		"jsonwebtoken": "^9.0.2",
-		"url-join": "^4"
+		"url-join": "^5"
 	},
 	"devDependencies": {
 		"@semantic-release/changelog": "^6.0.3",
