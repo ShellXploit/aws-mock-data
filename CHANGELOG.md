@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/ShellXploit/aws-mock-data/compare/v1.1.0...v1.2.0) (2024-04-20)
+
+
+### Features
+
+* **cognito:** :sparkles: Control JWT timestamps via props ([#21](https://github.com/ShellXploit/aws-mock-data/issues/21)) ([08254f3](https://github.com/ShellXploit/aws-mock-data/commit/08254f398eb5904e0291c31a0b10bfa06474f91e))
+
 # [1.1.0](https://github.com/ShellXploit/aws-mock-data/compare/v1.0.0...v1.1.0) (2024-04-13)
 
 
