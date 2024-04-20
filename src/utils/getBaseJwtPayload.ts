@@ -6,9 +6,18 @@ import {
 
 const getBaseJwtPayload = ({
 	issuer,
-	subject
+	subject,
+	authTimeInEpoch,
+	minutesToExpiry = 60
 }: GetBaseJwtPayloadProps): BaseJwtPayload => {
-	const currentEpochTime = Math.floor(Date.now() / 1000);
+	const isEpochValid =
+		authTimeInEpoch && new Date(authTimeInEpoch * 1000).getTime() > 0;
+
+	const authTime = isEpochValid
+		? authTimeInEpoch
+		: Math.floor(Date.now() / 1000);
+
+	const secondsToExpiry = minutesToExpiry * 60;
 
 	return {
 		sub: subject,
@@ -16,9 +25,9 @@ const getBaseJwtPayload = ({
 		origin_jti: getUUID(),
 		event_id: getUUID(),
 		jti: getUUID(),
-		auth_time: currentEpochTime,
-		exp: currentEpochTime + 60 * 60,
-		iat: currentEpochTime
+		auth_time: authTime,
+		exp: authTime + secondsToExpiry,
+		iat: authTime
 	};
 };
 

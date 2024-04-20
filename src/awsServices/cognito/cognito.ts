@@ -14,7 +14,8 @@ export const getCognitoTokens = ({
 	asymmetricKeys,
 	user,
 	cognito = {},
-	userPool = {}
+	userPool = {},
+	jwtConfig = {}
 }: GetCognitoTokensProps): CognitoTokens => {
 	const userData = {
 		uuid: getUUID(),
@@ -33,7 +34,9 @@ export const getCognitoTokens = ({
 	const issuerUrl = getIssuerUrl(userPool);
 	const baseJwtPayload = getBaseJwtPayload({
 		issuer: issuerUrl,
-		subject: userData.uuid
+		subject: userData.uuid,
+		authTimeInEpoch: jwtConfig.authTimeInEpoch,
+		minutesToExpiry: jwtConfig.minutesToExpiry
 	});
 
 	const accessToken = getAccessToken(asymmetricKeys, {

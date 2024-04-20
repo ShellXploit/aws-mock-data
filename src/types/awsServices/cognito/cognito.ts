@@ -31,11 +31,17 @@ interface UserPool {
 	region?: string;
 }
 
+interface JwtConfig {
+	authTimeInEpoch?: number;
+	minutesToExpiry?: number;
+}
+
 interface GetCognitoTokensProps {
 	asymmetricKeys: AsymmetricKeys;
 	user: User;
 	cognito?: Cognito;
 	userPool?: UserPool;
+	jwtConfig?: JwtConfig;
 }
 
 interface CognitoTokens {

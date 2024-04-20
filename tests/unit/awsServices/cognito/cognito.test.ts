@@ -90,4 +90,78 @@ describe("Cognito", () => {
 			expect(error).not.toBeNull();
 		}
 	});
+
+	it("should return a valid tokens with custom jwt config - expiry", () => {
+		const asymmetricKeys = utils.getAsymmetricKeys();
+
+		const minutesToExpiry = 1;
+
+		const { id_token: idToken, access_token: accessToken } =
+			awsServices.cognito.getCognitoTokens({
+				asymmetricKeys,
+				user: {
+					emailId
+				},
+				jwtConfig: {
+					minutesToExpiry
+				}
+			});
+
+		let decodedToken: string | jwt.JwtPayload | null = null;
+		let authTime = 0;
+		let expiry = 0;
+		try {
+			decodedToken = jwt.decode(idToken) as jwt.JwtPayload;
+		} catch (error) {
+			expect(error).toBeNull();
+		}
+		expect(decodedToken).not.toBeNull();
+		authTime = decodedToken?.iat || 0;
+		expiry = decodedToken?.exp || 0;
+		expect(expiry - authTime).toBe(minutesToExpiry * 60);
+
+		try {
+			decodedToken = jwt.decode(accessToken) as jwt.JwtPayload;
+		} catch (error) {
+			expect(error).toBeNull();
+		}
+		expect(decodedToken).not.toBeNull();
+		authTime = decodedToken?.iat || 0;
+		expiry = decodedToken?.exp || 0;
+		expect(expiry - authTime).toBe(minutesToExpiry * 60);
+	});
+
+	it("should return a valid tokens with custom jwt config - auth time", () => {
+		const asymmetricKeys = utils.getAsymmetricKeys();
+
+		const authTimeInEpoch = 1000;
+
+		const { id_token: idToken, access_token: accessToken } =
+			awsServices.cognito.getCognitoTokens({
+				asymmetricKeys,
+				user: {
+					emailId
+				},
+				jwtConfig: {
+					authTimeInEpoch
+				}
+			});
+
+		let decodedToken: string | jwt.JwtPayload | null = null;
+		try {
+			decodedToken = jwt.decode(idToken) as jwt.JwtPayload;
+		} catch (error) {
+			expect(error).toBeNull();
+		}
+		expect(decodedToken).not.toBeNull();
+		expect(decodedToken?.iat).toBe(authTimeInEpoch);
+
+		try {
+			decodedToken = jwt.decode(accessToken) as jwt.JwtPayload;
+		} catch (error) {
+			expect(error).toBeNull();
+		}
+		expect(decodedToken).not.toBeNull();
+		expect(decodedToken?.iat).toBe(authTimeInEpoch);
+	});
 });

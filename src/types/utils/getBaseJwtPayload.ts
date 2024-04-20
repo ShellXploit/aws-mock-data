@@ -1,6 +1,8 @@
 interface GetBaseJwtPayloadProps {
 	issuer: string;
 	subject: string;
+	authTimeInEpoch?: number;
+	minutesToExpiry?: number;
 }
 
 interface BaseJwtPayload {
