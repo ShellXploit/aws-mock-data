@@ -23,7 +23,7 @@
 		"dist/"
 	],
 	"scripts": {
-		"lint": "eslint src",
+		"lint": "ESLINT_USE_FLAT_CONFIG=false eslint src",
 		"pretty": "prettier --write src",
 		"pretty:check": "prettier --check src",
 		"clean": "rimraf node_modules/ dist/ coverage/",
