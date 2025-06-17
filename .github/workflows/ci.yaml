@@ -1,5 +1,9 @@
 name: Node CI
 
+permissions:
+    contents: read
+    actions: write
+
 on:
     workflow_dispatch:
     push:
