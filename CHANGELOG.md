@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/ShellXploit/aws-mock-data/compare/v1.2.0...v1.2.1) (2025-06-17)
+
+
+### Bug Fixes
+
+* **deps:** bump brace-expansion from 1.1.11 to 1.1.12 in the npm_and_yarn group ([#93](https://github.com/ShellXploit/aws-mock-data/issues/93)) ([8b85934](https://github.com/ShellXploit/aws-mock-data/commit/8b859340d7ef773a43012dcc16969d1fc6db2c81))
+
 # [1.2.0](https://github.com/ShellXploit/aws-mock-data/compare/v1.1.0...v1.2.0) (2024-04-20)
 
 
