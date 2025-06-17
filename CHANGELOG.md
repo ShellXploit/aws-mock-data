@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/ShellXploit/aws-mock-data/compare/v1.2.1...v1.2.2) (2025-06-17)
+
+
+### Bug Fixes
+
+* workflow does not contain permissions ([#96](https://github.com/ShellXploit/aws-mock-data/issues/96)) ([1e61de2](https://github.com/ShellXploit/aws-mock-data/commit/1e61de2bff5e61e1d83dc191769332a490756a3c))
+
 ## [1.2.1](https://github.com/ShellXploit/aws-mock-data/compare/v1.2.0...v1.2.1) (2025-06-17)
 
 
