@@ -9,10 +9,13 @@ updates:
           - "ShellXploit"
       versioning-strategy: increase
       groups:
-          "Dependencies":
+          production-dependencies:
               dependency-type: "production"
-          "Dev Dependencies":
+          development-dependencies:
               dependency-type: "development"
+      prefix: "fix"
+      prefix-development: "chore"
+      include: "scope"
 
     - package-ecosystem: "github-actions"
       directory: "/"
