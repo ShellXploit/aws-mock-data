@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/ShellXploit/aws-mock-data/compare/v1.2.2...v1.2.3) (2025-08-27)
+
+
+### Bug Fixes
+
+* dependabot config, README.md, add CLAUDE.md and CONTRIBUTING.md ([#106](https://github.com/ShellXploit/aws-mock-data/issues/106)) ([86b3980](https://github.com/ShellXploit/aws-mock-data/commit/86b39801c155073135814e52c849818e84936611))
+
 ## [1.2.2](https://github.com/ShellXploit/aws-mock-data/compare/v1.2.1...v1.2.2) (2025-06-17)
 
 
