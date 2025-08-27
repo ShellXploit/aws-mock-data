@@ -13,9 +13,11 @@ updates:
               dependency-type: "production"
           development-dependencies:
               dependency-type: "development"
-      prefix: "fix"
-      prefix-development: "chore"
-      include: "scope"
+      commit-message:
+          # This ensures security updates trigger patch releases
+          prefix: "fix"
+          prefix-development: "chore"
+          include: "scope"
 
     - package-ecosystem: "github-actions"
       directory: "/"
