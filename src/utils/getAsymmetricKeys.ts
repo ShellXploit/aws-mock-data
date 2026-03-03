@@ -1,4 +1,4 @@
-import { generateKeyPairSync, RSAKeyPairKeyObjectOptions } from "crypto";
+import { generateKeyPairSync, KeyObject } from "crypto";
 import {
 	GetAsymmetricKeysProps,
 	AsymmetricKeys
@@ -10,11 +10,10 @@ export const getAsymmetricKeys = (
 ): AsymmetricKeys => {
 	const { keyId = getUUID(), modulusLength = 2048 } = props || {};
 
-	const alg = "rsa";
-	const options: RSAKeyPairKeyObjectOptions = {
-		modulusLength
+	const keyPair = generateKeyPairSync("rsa", { modulusLength }) as {
+		publicKey: KeyObject;
+		privateKey: KeyObject;
 	};
-	const keyPair = generateKeyPairSync(alg, options);
 
 	return {
 		keyId,

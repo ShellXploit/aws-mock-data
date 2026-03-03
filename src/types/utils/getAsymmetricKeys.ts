@@ -1,5 +1,3 @@
-import { JsonWebKey } from "crypto";
-
 export interface AsymmetricKeys {
 	keyId: string;
 	pem: {
