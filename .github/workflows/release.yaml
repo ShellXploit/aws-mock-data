@@ -3,7 +3,7 @@ name: Release
 on:
     workflow_dispatch:
     workflow_run:
-        workflows: ["Node CI"]
+        workflows: ["CI"]
         branches:
             - main
         types:
@@ -26,17 +26,12 @@ jobs:
 
         runs-on: ubuntu-latest
 
-        strategy:
-            matrix:
-                node-version: [24.x]
         steps:
             - uses: actions/checkout@v6
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v6
-              with:
-                  node-version: ${{ matrix.node-version }}
-            - run: yarn install --frozen-lockfile
-            - run: yarn build
-            - run: yarn semantic-release
+            - name: Setup Bun
+              uses: oven-sh/setup-bun@v2.1.2
+            - run: bun install --frozen-lockfile
+            - run: bun run build
+            - run: bun run semantic-release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

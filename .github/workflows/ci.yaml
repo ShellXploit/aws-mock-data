@@ -1,4 +1,4 @@
-name: Node CI
+name: CI
 
 permissions:
     contents: read
@@ -18,29 +18,22 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    node-ci:
-        name: Node CI
+    ci:
+        name: CI
 
         runs-on: ubuntu-latest
-
-        strategy:
-            matrix:
-                node-version: [24.x]
 
         steps:
             - uses: actions/checkout@v6
 
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v6
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: "yarn"
+            - name: Setup Bun
+              uses: oven-sh/setup-bun@v2.1.2
 
-            - run: yarn install --frozen-lockfile
-            - run: yarn lint
-            - run: yarn pretty:check
-            - run: yarn build
-            - run: yarn test --coverage
+            - run: bun install --frozen-lockfile
+            - run: bun run lint
+            - run: bun run pretty:check
+            - run: bun run build
+            - run: bun test --coverage
             - name: Upload coverage reports to Codecov
               uses: codecov/codecov-action@v5
               env:
