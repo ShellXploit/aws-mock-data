@@ -24,7 +24,7 @@
 		"dist/"
 	],
 	"scripts": {
-		"lint": "ESLINT_USE_FLAT_CONFIG=false eslint src",
+		"lint": "eslint src",
 		"pretty": "prettier --write src",
 		"pretty:check": "prettier --check src",
 		"clean": "rm -rf node_modules/ dist/ coverage/",
