@@ -1,3 +1,17 @@
+# [1.3.0](https://github.com/ShellXploit/aws-mock-data/compare/v1.2.4...v1.3.0) (2026-03-03)
+
+
+### Bug Fixes
+
+* add node 24 for semantic-release compatibility ([#135](https://github.com/ShellXploit/aws-mock-data/issues/135)) ([09c403f](https://github.com/ShellXploit/aws-mock-data/commit/09c403fd79c3e976dce266e27b64214f5ccc9cef))
+* **deps:** bump ajv, diff, lodash, lodash-es, and @isaacs/brace-expansion ([562126c](https://github.com/ShellXploit/aws-mock-data/commit/562126c68e66303a4630ad49bbebdf2176355e42)), closes [#123](https://github.com/ShellXploit/aws-mock-data/issues/123) [#124](https://github.com/ShellXploit/aws-mock-data/issues/124) [#125](https://github.com/ShellXploit/aws-mock-data/issues/125) [#126](https://github.com/ShellXploit/aws-mock-data/issues/126) [#128](https://github.com/ShellXploit/aws-mock-data/issues/128)
+* **deps:** bump the production-dependencies group across 1 directory with 2 updates ([#121](https://github.com/ShellXploit/aws-mock-data/issues/121)) ([8e9ccf5](https://github.com/ShellXploit/aws-mock-data/commit/8e9ccf52e14048839cc8b8210a090e8c7056dba5))
+
+
+### Features
+
+* migrate to bun ([#132](https://github.com/ShellXploit/aws-mock-data/issues/132)) ([9df09e3](https://github.com/ShellXploit/aws-mock-data/commit/9df09e3dd1ae6992b7af99bd5bfba45160b81d15))
+
 ## [1.2.4](https://github.com/ShellXploit/aws-mock-data/compare/v1.2.3...v1.2.4) (2026-03-03)
 
 
