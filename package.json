@@ -39,6 +39,9 @@
 	"dependencies": {
 		"jsonwebtoken": "^9.0.3"
 	},
+	"optionalDependencies": {
+		"@rollup/rollup-linux-x64-gnu": "4.35.0"
+	},
 	"devDependencies": {
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
