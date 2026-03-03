@@ -29,7 +29,7 @@ jobs:
             - name: Setup Bun
               uses: oven-sh/setup-bun@v2.1.2
 
-            - run: bun install --frozen-lockfile
+            - run: bun install
             - run: bun run lint
             - run: bun run pretty:check
             - run: bun run build
