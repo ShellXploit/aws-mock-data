@@ -46,14 +46,14 @@
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
 		"@types/jsonwebtoken": "^9.0.10",
-		"@types/node": "^25.3.3",
-		"@typescript-eslint/eslint-plugin": "^8.48.0",
-		"@typescript-eslint/parser": "^8.48.0",
-		"eslint": "^10.0.2",
+		"@types/node": "^25.5.0",
+		"@typescript-eslint/eslint-plugin": "^8.57.2",
+		"@typescript-eslint/parser": "^8.57.2",
+		"eslint": "^10.1.0",
 		"prettier": "^3.7.3",
 		"semantic-release": "^25.0.2",
 		"tsup": "^8.5.1",
-		"typescript": "^5.9.3"
+		"typescript": "^6.0.2"
 	},
 	"packageManager": "bun@1.2.2"
 }
