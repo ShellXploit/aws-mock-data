@@ -40,7 +40,7 @@
 		"jsonwebtoken": "^9.0.3"
 	},
 	"optionalDependencies": {
-		"@rollup/rollup-linux-x64-gnu": "4.59.0"
+		"@rollup/rollup-linux-x64-gnu": "4.60.0"
 	},
 	"devDependencies": {
 		"@semantic-release/changelog": "^6.0.3",
