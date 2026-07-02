@@ -1,3 +1,10 @@
+## [1.3.3](https://github.com/ShellXploit/aws-mock-data/compare/v1.3.2...v1.3.3) (2026-07-02)
+
+
+### Bug Fixes
+
+* **deps:** bump @rollup/rollup-linux-x64-gnu from 4.60.0 to 4.61.1 in the production-dependencies group ([#146](https://github.com/ShellXploit/aws-mock-data/issues/146)) ([72c4ec9](https://github.com/ShellXploit/aws-mock-data/commit/72c4ec9c9639763c09eeea61011b6472ea8512a7))
+
 ## [1.3.2](https://github.com/ShellXploit/aws-mock-data/compare/v1.3.1...v1.3.2) (2026-06-10)
 
 
