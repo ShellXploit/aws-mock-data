@@ -1,3 +1,12 @@
+## [1.3.4](https://github.com/ShellXploit/aws-mock-data/compare/v1.3.3...v1.3.4) (2026-09-25)
+
+
+### Bug Fixes
+
+* **deps:** bump @rollup/rollup-linux-x64-gnu from 4.61.1 to 4.62.2 in the production-dependencies group ([#151](https://github.com/ShellXploit/aws-mock-data/issues/151)) ([68ceee0](https://github.com/ShellXploit/aws-mock-data/commit/68ceee0b6dfac7999d1121f9723e56f9232f348b))
+* **deps:** bump actions/setup-node from 6.4.0 to 7.0.0 ([#152](https://github.com/ShellXploit/aws-mock-data/issues/152)) ([514edd0](https://github.com/ShellXploit/aws-mock-data/commit/514edd05348bea15c3d1d00d9ecf0a3c38edb48e))
+* **deps:** bump codecov/codecov-action from 6 to 7 ([#145](https://github.com/ShellXploit/aws-mock-data/issues/145)) ([0d40194](https://github.com/ShellXploit/aws-mock-data/commit/0d40194a53777f1fa9d56d51752be19a337af161))
+
 ## [1.3.3](https://github.com/ShellXploit/aws-mock-data/compare/v1.3.2...v1.3.3) (2026-07-02)
 
 
