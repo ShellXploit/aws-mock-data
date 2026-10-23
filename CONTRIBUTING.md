@@ -5,8 +5,7 @@ Thanks for your interest in contributing! This guide will help you get started q
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js v18+
-- Yarn v4.2.2
+- [Bun](https://bun.com) (version pinned in `package.json` `packageManager`)
 - Git
 
 ### Setup
@@ -17,10 +16,10 @@ git clone https://github.com/YOUR-USERNAME/aws-mock-data.git
 cd aws-mock-data
 
 # Install dependencies
-yarn install
+bun install --frozen-lockfile
 
 # Run tests and build
-yarn test && yarn build
+bun run test && bun run build
 ````
 
 ## 💡 How to Contribute
@@ -38,15 +37,15 @@ Use clear naming:
 Follow our coding standards:
 
 * TypeScript with strong typing
-* Lint: `yarn lint`
-* Format: `yarn pretty`
+* Lint: `bun run lint`
+* Format: `bun run pretty`
 * Tests: Add/modify unit tests in `tests/unit/`
 
 ### 3. Run Tests
 
 ```bash
-yarn test         # Run all tests
-yarn test --watch # Watch mode
+bun test         # Run all tests
+bun test --watch # Watch mode
 ```
 
 ### Project Structure
@@ -81,8 +80,8 @@ tests/
 
 ## ✅ Before Submitting a PR
 
-* [ ] All tests pass (`yarn test`)
-* [ ] Code is linted and formatted (`yarn lint && yarn pretty`)
+* [ ] All tests pass (`bun test`)
+* [ ] Code is linted and formatted (`bun run lint && bun run pretty`)
 * [ ] PR title follows [Conventional Commits](https://www.conventionalcommits.org/)
 * [ ] Description explains what/why
 * [ ] Related issue is linked (`Fixes #123`)
