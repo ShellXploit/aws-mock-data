@@ -1,8 +1,5 @@
 name: Release
 
-# npm trusted publishing is bound to this workflow filename (release.yaml)
-# and to the "release" environment; keep them in sync with npmjs.com.
-
 on:
     workflow_dispatch:
     push:
@@ -28,20 +25,17 @@ jobs:
 
         needs: ci
 
-        # Deployment branch rules on this environment restrict releases to main.
         environment: release
 
         permissions:
             contents: write # to be able to publish a GitHub release
             issues: write # to be able to comment on released issues
             pull-requests: write # to be able to comment on released pull requests
-            id-token: write # to enable use of OIDC for npm trusted publishing and provenance
+            id-token: write # to enable use of OIDC for npm provenance
 
         runs-on: ubuntu-latest
 
         steps:
-            # Credentials are kept (no persist-credentials: false): semantic-release
-            # pushes the release commit and tag back to main with GITHUB_TOKEN.
             - uses: actions/checkout@v7.0.1
 
             - name: Setup Bun
@@ -51,12 +45,6 @@ jobs:
 
             - run: bun install --frozen-lockfile
             - run: bun run build
-
-            # bun publish cannot do OIDC trusted publishing or provenance yet, so
-            # @semantic-release/npm publishes with the npm CLI from bun.lock on the
-            # runner's preinstalled Node (semantic-release checks its engines range).
-            - name: Show publish toolchain
-              run: node --version && node_modules/.bin/npm --version
 
             - run: bun run semantic-release
               env:
