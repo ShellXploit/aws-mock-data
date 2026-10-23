@@ -1,39 +1,63 @@
 name: Release
 
+# npm trusted publishing is bound to this workflow filename (release.yaml)
+# and to the "release" environment; keep them in sync with npmjs.com.
+
 on:
     workflow_dispatch:
-    workflow_run:
-        workflows: ["CI"]
+    push:
         branches:
             - main
-        types:
-            - completed
+
+permissions:
+    contents: read
 
 concurrency:
     group: release-${{ github.repository }}
+    cancel-in-progress: false
 
 jobs:
+    ci:
+        name: CI
+        uses: ./.github/workflows/ci.yaml
+        secrets:
+            CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
     release:
         name: Release
 
-        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        needs: ci
+
+        # Deployment branch rules on this environment restrict releases to main.
+        environment: release
 
         permissions:
             contents: write # to be able to publish a GitHub release
             issues: write # to be able to comment on released issues
             pull-requests: write # to be able to comment on released pull requests
-            id-token: write # to enable use of OIDC for npm provenance
+            id-token: write # to enable use of OIDC for npm trusted publishing and provenance
 
         runs-on: ubuntu-latest
 
         steps:
-            - uses: actions/checkout@v6
-            - uses: actions/setup-node@v7.0.0
+            # Credentials are kept (no persist-credentials: false): semantic-release
+            # pushes the release commit and tag back to main with GITHUB_TOKEN.
+            - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+            - name: Setup Bun
+              uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
               with:
-                  node-version: 24
-            - uses: oven-sh/setup-bun@v2.2.0
-            - run: bun install
+                  bun-version-file: package.json
+
+            - run: bun install --frozen-lockfile
             - run: bun run build
+
+            # bun publish cannot do OIDC trusted publishing or provenance yet, so
+            # @semantic-release/npm publishes with the npm CLI from bun.lock on the
+            # runner's preinstalled Node (semantic-release checks its engines range).
+            - name: Show publish toolchain
+              run: node --version && node_modules/.bin/npm --version
+
             - run: bun run semantic-release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
