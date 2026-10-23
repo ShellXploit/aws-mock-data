@@ -1,3 +1,10 @@
+## [1.3.5](https://github.com/ShellXploit/aws-mock-data/compare/v1.3.4...v1.3.5) (2026-10-23)
+
+
+### Bug Fixes
+
+* **deps:** stop shipping rollup binary to consumers; harden CI, release and dependencies ([#157](https://github.com/ShellXploit/aws-mock-data/issues/157)) ([1b4bca4](https://github.com/ShellXploit/aws-mock-data/commit/1b4bca408292415a906be2d6de67e9f7129c950b))
+
 ## [1.3.4](https://github.com/ShellXploit/aws-mock-data/compare/v1.3.3...v1.3.4) (2026-09-25)
 
 
