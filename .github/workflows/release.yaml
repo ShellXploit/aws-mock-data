@@ -2,21 +2,30 @@ name: Release
 
 on:
     workflow_dispatch:
-    workflow_run:
-        workflows: ["CI"]
+    push:
         branches:
             - main
-        types:
-            - completed
+
+permissions:
+    contents: read
 
 concurrency:
     group: release-${{ github.repository }}
+    cancel-in-progress: false
 
 jobs:
+    ci:
+        name: CI
+        uses: ./.github/workflows/ci.yaml
+        secrets:
+            CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
     release:
         name: Release
 
-        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        needs: ci
+
+        environment: release
 
         permissions:
             contents: write # to be able to publish a GitHub release
@@ -27,13 +36,16 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - uses: actions/checkout@v6
-            - uses: actions/setup-node@v7.0.0
+            - uses: actions/checkout@v7.0.1
+
+            - name: Setup Bun
+              uses: oven-sh/setup-bun@v2.2.0
               with:
-                  node-version: 24
-            - uses: oven-sh/setup-bun@v2.2.0
-            - run: bun install
+                  bun-version-file: package.json
+
+            - run: bun install --frozen-lockfile
             - run: bun run build
+
             - run: bun run semantic-release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

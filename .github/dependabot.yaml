@@ -5,6 +5,8 @@ updates:
       directory: "/"
       schedule:
           interval: "weekly"
+      cooldown:
+          default-days: 7
       reviewers:
           - "ShellXploit"
       versioning-strategy: increase
@@ -23,5 +25,7 @@ updates:
       directory: "/"
       schedule:
           interval: "weekly"
+      cooldown:
+          default-days: 7
       reviewers:
           - "ShellXploit"
